@@ -11108,7 +11108,7 @@ https.request("https://api.telegram.org/bot"..TokenBot..'/sendPhoto?chat_id=' ..
 return false
 end
 --     Source RoX     --
-if text == "سورس" or text == "السورس" or text == "يا سورس" or text == "↫  السورس ᥀" and ChCheck(msg) then
+if text == "المبرمج" or text == "مبرمج السورس" or text == "مطور السورس" or text == "↫  السورس ᥀" and ChCheck(msg) then
 Text = [[
 ᥀︙[Developer](https://t.me/BBB43)
 ]]
@@ -11119,18 +11119,6 @@ keyboard.inline_keyboard = {
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..TokenBot..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/BBB43&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
-if text == "ج السورس" and ChCheck(msg) or text == "مطور السورس" and ChCheck(msg) or text == "وين المبرمج" and ChCheck(msg) or text == "المبرمج" and ChCheck(msg) or text == "↫ مبرمج السورس ᥀" and ChCheck(msg) then
-Text = [[
-᥀︙[مبرمج السورس](https://t.me/BBB43)
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '᥀ مبرمج السورس',url="t.me/BBB43"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/W55555&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
 --     Source RoX     --
