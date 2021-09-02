@@ -3567,15 +3567,19 @@ DevAbs:set(RoX..'Abs:NameBot', text)
 return false 
 end
 --     Source RoX     --
-if text == "الرابط" and ChCheck(msg) then
-if not DevAbs:get(RoX.."Abs:Lock:GpLinks"..msg.chat_id_) then 
-if DevAbs:get(RoX.."Abs:Groups:Links"..msg.chat_id_) then
-Dev_Abs(msg.chat_id_, msg.id_, 1, "᥀︙𝖦𝗋𝗈𝗎𝗉 𝖫𝗂𝗇𝗄 ↬ ⤈ \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"..DevAbs:get(RoX.."Abs:Groups:Links"..msg.chat_id_), 1, "html")
+if text == "الرابط" then
+if not DevAbs:get(RoX.."Rio:Lock:GpLinksinline"..msg.chat_id_) then 
+tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
+local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..TokenBot..'/exportChatInviteLink?chat_id='..msg.chat_id_)) or DevAbs:get(RoX.."Private:Group:Link"..msg.chat_id_) 
+if linkgpp.ok == true then 
+local Text = '᥀︙𝖫𝗂𝗇𝗄 𝖦𝗋𝗈𝗎𝗉 ↬ ⤈\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n['..ta.title_..']('..linkgpp.result..')'
+keyboard = {}  
+keyboard.inline_keyboard = {{{text = ta.title_, url=linkgpp.result}}}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/rox_source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else 
-Dev_Abs(msg.chat_id_, msg.id_, 1, '᥀︙لايوجد رابط ارسل ↫ ضع رابط او ارسل ↫ انشاء رابط للانشاء', 1, 'md')
-end
-else
-Dev_Abs(msg.chat_id_, msg.id_, 1, '᥀︙جلب رابط المجموعه معطل', 1, 'md')
+end 
+end,nil) 
 end
 end
 --     Source RoX     --
@@ -9062,7 +9066,7 @@ Absmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, RoX_SoURcE, 14, string.len(
 DevAbs:set(RoX..'Abs:gif:Abs'..msg.chat_id_,true)  
 end
 if text == "متحركه" or text == "↫ متحركه ᥀" and not DevAbs:get(RoX..'Abs:gif:Abs'..msg.chat_id_) and ChCheck(msg) then
-data,res = https.request('https://ccccxcc.ml/David/animation.php')
+data,res = https.request('https://ccccxcc.ml/RoX/animation.php')
 if res == 200 then
 animation = json:decode(data)
 if animation.Info == true then
@@ -9088,7 +9092,7 @@ Absmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, RoX_SoURcE, 14, string.len(
 DevAbs:set(RoX..'Abs:memz:Abs'..msg.chat_id_,true)  
 end
 if text == "ميمز" or text == "↫ ميمز ᥀" and not DevAbs:get(RoX..'Abs:memz:Abs'..msg.chat_id_) and ChCheck(msg) then
-data,res = https.request('https://ccccxcc.ml/David/memz.php')
+data,res = https.request('https://ccccxcc.ml/RoX/memz.php')
 if res == 200 then
 Audios = json:decode(data)
 if Audios.Info == true then
@@ -9114,7 +9118,7 @@ Absmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, RoX_SoURcE, 14, string.len(
 DevAbs:set(RoX..'Abs:Audios:Abs'..msg.chat_id_,true)  
 end
 if text == "غنيلي" or text == "↫ غنيلي ᥀" and not DevAbs:get(RoX..'Abs:Audios:Abs'..msg.chat_id_) and ChCheck(msg) then
-data,res = https.request('https://ccccxcc.ml/David/Audios.php')
+data,res = https.request('https://ccccxcc.ml/RoX/Audios.php')
 if res == 200 then
 Audios = json:decode(data)
 if Audios.Info == true then
@@ -9140,7 +9144,7 @@ Absmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, RoX_SoURcE, 14, string.len(
 DevAbs:set(RoX..'Abs:mp3:Abs'..msg.chat_id_,true)  
 end
 if text == "اغنيه" or text == "↫ اغنيه ᥀" or text == "اغاني" and not DevAbs:get(RoX..'Abs:mp3:Abs'..msg.chat_id_) and ChCheck(msg) then
-data,res = https.request('https://ccccxcc.ml/David/mp3.php')
+data,res = https.request('https://ccccxcc.ml/RoX/mp3.php')
 if res == 200 then
 Audios = json:decode(data)
 if Audios.Info == true then
@@ -9166,7 +9170,7 @@ Absmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, RoX_SoURcE, 14, string.len(
 DevAbs:set(RoX..'Abs:Remix:Abs'..msg.chat_id_,true)  
 end
 if text == "ريمكس" or text == "↫ ريمكس ᥀" and not DevAbs:get(RoX..'Abs:Remix:Abs'..msg.chat_id_) and ChCheck(msg) then
-data,res = https.request('https://ccccxcc.ml/David/Remix.php')
+data,res = https.request('https://ccccxcc.ml/RoX/Remix.php')
 if res == 200 then
 Audios = json:decode(data)
 if Audios.Info == true then
@@ -9192,7 +9196,7 @@ Absmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, RoX_SoURcE, 14, string.len(
 DevAbs:set(RoX..'Abs:Photo:Abs'..msg.chat_id_,true)  
 end
 if text == "صوره" or text == "↫ صوره ᥀" and not DevAbs:get(RoX..'Abs:Photo:Abs'..msg.chat_id_) and ChCheck(msg) then
-data,res = https.request('https://ccccxcc.ml/David/Photo.php')
+data,res = https.request('https://ccccxcc.ml/RoX/Photo.php')
 if res == 200 then
 photo = json:decode(data)
 if photo.Info == true then
@@ -9218,7 +9222,7 @@ Absmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, RoX_SoURcE, 14, string.len(
 DevAbs:set(RoX..'Abs:Anime:Abs'..msg.chat_id_,true)  
 end
 if text == "انمي" or text == "↫ انمي ᥀" and not DevAbs:get(RoX..'Abs:Anime:Abs'..msg.chat_id_) and ChCheck(msg) then
-data,res = https.request('https://ccccxcc.ml/David/Anime.php')
+data,res = https.request('https://ccccxcc.ml/RoX/Anime.php')
 if res == 200 then
 photo = json:decode(data)
 if photo.Info == true then
@@ -9244,7 +9248,7 @@ Absmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, RoX_SoURcE, 14, string.len(
 DevAbs:set(RoX..'Abs:Movies:Abs'..msg.chat_id_,true)  
 end
 if text == "فلم" or text == "↫ فلم ᥀" and not DevAbs:get(RoX..'Abs:Movies:Abs'..msg.chat_id_) and ChCheck(msg) then
-data,res = https.request('https://ccccxcc.ml/David/Movies.php')
+data,res = https.request('https://ccccxcc.ml/RoX/Movies.php')
 if res == 200 then
 photo = json:decode(data)
 if photo.Info == true then
@@ -9270,7 +9274,7 @@ Absmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, RoX_SoURcE, 14, string.len(
 DevAbs:set(RoX..'Abs:Series:Abs'..msg.chat_id_,true)  
 end
 if text == "مسلسل" or text == "↫ مسلسل ᥀" and not DevAbs:get(RoX..'Abs:Series:Abs'..msg.chat_id_) and ChCheck(msg) then
-data,res = https.request('https://ccccxcc.ml/David/Series.php')
+data,res = https.request('https://ccccxcc.ml/RoX/Series.php')
 if res == 200 then
 photo = json:decode(data)
 if photo.Info == true then
@@ -9673,6 +9677,22 @@ DevAbs:set(RoX.."Abs:Lock:GpLinks"..msg.chat_id_,"ok")
 return false  
 end
 end
+if text == "تعطيل الرابط انلاين" and ChCheck(msg) or text == "تعطيل جلب الرابط انلاين" and ChCheck(msg) then 
+if Admin(msg) then
+local RoX_SoURcE = '᥀︙اهلا عزيزي ↫ '..AbsRank(msg)..' \n᥀︙تم تعطيل جلب رابط انلاين المجموعه'
+Absmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, RoX_SoURcE, 14, string.len(msg.sender_user_id_))
+DevAbs:set(RoX.."Rio:Lock:GpLinksinline"..msg.chat_id_,"ok")
+return false  
+end
+end
+if text == "تفعيل الرابط انلاين" and ChCheck(msg) or text == "تفعيل جلب الرابط انلاين" and ChCheck(msg) then 
+if Admin(msg) then
+local RoX_SoURcE = '᥀︙اهلا عزيزي ↫ '..AbsRank(msg)..' \n᥀︙تم تفعيل جلب رابط انلاين المجموعه'
+Absmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, RoX_SoURcE, 14, string.len(msg.sender_user_id_))
+DevAbs:del(RoX.."Rio:Lock:GpLinksinline"..msg.chat_id_)
+return false  
+end
+end
 if text == "تفعيل حذف الردود" and ChCheck(msg) or text == "تفعيل مسح الردود" and ChCheck(msg) then 
 if AbsConstructor(msg) then
 local RoX_SoURcE = '᥀︙اهلا عزيزي ↫ '..AbsRank(msg)..' \n᥀︙تم تفعيل حذف ردود المدير'
@@ -9686,6 +9706,26 @@ if AbsConstructor(msg) then
 local RoX_SoURcE = '᥀︙اهلا عزيزي ↫ '..AbsRank(msg)..' \n᥀︙تم تعطيل حذف ردود المدير'
 Absmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, RoX_SoURcE, 14, string.len(msg.sender_user_id_))
 DevAbs:set(RoX.."Abs:Lock:Rd"..msg.chat_id_,"ok")
+return false  
+end
+end
+if text and (text == "تفعيل اضف رد" or text == "تفعيل اضافه رد" or text == "تفعيل حذف رد" or text == "تفعيل حذف رد عام" or text == "تفعيل اضف رد عام") and ChCheck(msg) then 
+if not AbsConstructor(msg) then
+Dev_Rio(msg.chat_id_, msg.id_, 1, '᥀︙لمالك المجموعه او اعلى فقط ', 1, 'md')
+else
+local RoX_SoURcE = '᥀︙اهلا عزيزي ↫ '..AbsRank(msg)..' \n᥀︙تم تفعيل اضف رد'
+Absmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, RoX_SoURcE, 14, string.len(msg.sender_user_id_))
+DevAbs:del(RoX.."Abs:Lock:Rd"..msg.chat_id_)
+return false  
+end
+end
+if text and (text == "تعطيل اضف رد" or text == "تعطيل اضافه رد" or text == "تعطيل حذف رد" or text == "تعطيل حذف رد عام" or text == "تعطيل اضف رد عام") and ChCheck(msg) then 
+if not AbsConstructor(msg) then
+Dev_Rio(msg.chat_id_, msg.id_, 1, '᥀︙لمالك المجموعه او اعلى فقط ', 1, 'md')
+else
+local RoX_SoURcE = '᥀︙اهلا عزيزي ↫ '..AbsRank(msg)..' \n᥀︙تم تعطيل اضف رد'
+Absmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, RoX_SoURcE, 14, string.len(msg.sender_user_id_))
+DevAbs:set(RoX.."Abs:Lock:Rd"..msg.chat_id_,true)
 return false  
 end
 end
@@ -10202,11 +10242,18 @@ DevAbs:set(RoX..'Abs:Add:GpRed'..msg.sender_user_id_..msg.chat_id_,'DelGpRed')
 Dev_Abs(msg.chat_id_, msg.id_, 1, "᥀︙حسنا ارسل الكلمه لحذفها " ,  1, "md")
 return false
 end
-if text == 'اضف رد' and Manager(msg) and ChCheck(msg) then
+if text and (text == 'اضف رد' or text == 'اضافه رد' or text == 'اضافة رد') and ChCheck(msg) then
+if not Bot(msg) and DevAbs:get(RoX..'Abs:Lock:Rd'..msg.chat_id_) then 
+Dev_Abs(msg.chat_id_, msg.id_, 1,'᥀︙لاتستطيع اضافه رد وذالك بسبب تعطيله', 1, 'md')
+return false
+end
+if not Manager(msg) then
+Dev_Abs(msg.chat_id_, msg.id_, 1, '᥀︙للمدير واعلى فقط ', 1, 'md')
+else
 DevAbs:set(RoX..'Abs:Add:GpRed'..msg.sender_user_id_..msg.chat_id_,'SetGpRed')
 Dev_Abs(msg.chat_id_, msg.id_, 1, "᥀︙حسنا ارسل الكلمه الان " ,  1, "md")
 return false
-end
+end end
 if text and text:match("^(.*)$") then
 local SetGpRed = DevAbs:get(RoX..'Abs:Add:GpRed'..msg.sender_user_id_..msg.chat_id_)
 if SetGpRed == 'SetGpRed' then
