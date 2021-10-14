@@ -1935,7 +1935,7 @@ if not DevAbs:get(RoX..'Abs:Start:Time'..msg.sender_user_id_) then
 tdcli_function({ID="GetUser",user_id_=DevId},function(arg,dp) 
 local inline = {
 {{text="༯ المطور .",url="t.me/"..(dp.username_ or "RR17D")}},
-{{text="༯ السورس .",url="https://t.me/RoX_SoURcE"},{text="༯ لتنصيب بوت .",url="https://t.me/XXXaa1212"}},
+{{text="༯ السورس .",url="https://t.me/RoX_SoURcE"},{text="༯ لتنصيب بوت .",url="https://t.me/IZIZ7I"}},
 }
 local start = DevAbs:get(RoX.."Abs:Start:Bot")
 if start then 
@@ -4475,7 +4475,7 @@ local text =  [[
 
 ◈￤[exp Source](t.me/RR17D)
 
-◈￤[Developer](t.me/XXXaa1212)
+◈￤[Developer](t.me/IZIZ7I)
 ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
 ◈￤[Tws](t.me/Z66Z6bot)
 ]]
@@ -11157,14 +11157,14 @@ end
 --     Source RoX     --
 if text == "المبرمج" or text == "مبرمج السورس" or text == "مطور السورس" or text == "↜  السورس ༯" and ChCheck(msg) then
 Text = [[
-◈￤[Developer](https://t.me/XXXaa1212)
+◈￤[Developer](https://t.me/IZIZ7I)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '༯ Developer',url="https://t.me/XXXaa1212"}},
+{{text = '༯ Developer',url="https://t.me/IZIZ7I"}},
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/XXXaa1212&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/IZIZ7I&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
 --     Source RoX     --
